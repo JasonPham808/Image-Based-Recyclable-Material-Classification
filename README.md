@@ -28,35 +28,56 @@ This project applies state-of-the-art deep learning to the real-world challenge 
 - Balanced train/test split for robust evaluation.
 
 ## 📊 Results
+**Comparative Analysis: ANN vs. CNN**
+  - ANN Model 3: 
+    - Highest accuracy: 82.1%
+    - Cohen’s kappa: 0.786
+    - Test loss: 0.812
+    - Architecture: 2 hidden layers, dropout rate 0.5, RMSprop optimization
+  - CNN Model 6:
+    - Accuracy: 80.9%
+  **Key Insights:**
+    - ANN limitations: Cannot effectively exploit spatial hierarchies of image data.
+    - CNN advantages: Better differentiation of visually similar categories; captures edges and textures well.
+    - CNNs scale efficiently with larger datasets; more robust to environmental variations.
+  
+**Worst Performing Class:**
+  - Misclassification is prevalent in clothing items and glass variants (green and white).
+**Clothing Misclassifications:**
+    - High intra-class variability (different fabrics, colors, textures).
+    - Often confused with cardboard due to color similarities.
+**Glass Misclassifications:**
+    - Similar visual characteristics (transparency, reflective surfaces).
+    - - Difficulty in differentiation even with advanced CNNs.
+  
+**Challenges Identified:**
+- Class imbalance and visual similarity.
+- Potential solutions: 
+- Collect more diverse training samples.
+- Apply data augmentation techniques.
+- Use more advanced architectures to focus on subtle differences.
 
-- **Artificial Neural Networks (ANN):** Up to 82% accuracy.
-- **Convolutional Neural Networks (CNN):** Up to 80.9% accuracy.
-- Results include accuracy, Cohen’s kappa, confusion matrices, and classification reports.
-- CNNs best suited for real-world deployment and scalability.
+## Potential Approaches for Improvement and Sustainable Impact
+ **Data Collection**
+  - Increase dataset size to mitigate overfitting and enhance generalization.
+  - Balance classes by expanding underrepresented categories (e.g., clothing, green glass, white glass) with diverse samples.
 
-## 🌟 Why Recruiters Should Care
+**Data Processing**
+  - Implement image augmentation (rotations, flips, brightness adjustments, Gaussian noise) to simulate variability and reduce overfitting.
+  - Use background removal, color normalization, and edge detection to focus on materials.
+  - Apply noise reduction filters to minimize reflections and lighting artifacts.
 
-- **Practical Impact:** Direct application to sustainability and AI-powered automation.
-- **Technical Depth:** Experience in deep learning, image classification, and research-level evaluation.
-- **Communication:** Clear presentation of data, models, and results in an interactive notebook.
-- **Extensible:** Ready for transfer learning, larger datasets, and production deployment.
+**Data Formatting**
+  - Standardize image size (e.g., 128×128 or 224×224 pixels) for streamlined training.
+  - Experiment with alternative color spaces (grayscale, HSV) for better material distinction.
+  - Enhance annotations with metadata (lighting conditions, source environment) for future multi-modal model development.
 
-## 📂 Repo Structure
+**Modeling Architecture**
+  - Explore deeper architectures with additional convolutional layers, residual connections, or attention mechanisms.
+  - Utilize ensemble methods by combining CNNs or hybrid approaches to improve robustness.
 
-```
-.
-├── README.md
-├── requirements.txt                # Dependencies for local/test runs
-├── notebooks/
-│   └── huy-hung_pham_mis780a2_task2.ipynb    # Main Colab notebook
-├── src/
-│   ├── data_loader.py              # For extensible data handling
-│   ├── ann_model.py                # ANN architecture
-│   ├── cnn_model.py                # CNN architecture
-│   └── utils.py                    # Evaluation, visualization, helpers
-```
 
-## ▶️ Quick Start
+## How to access this project
 
 1. **Run it on Colab:**  
    [Open Notebook Now](https://colab.research.google.com/gist/JasonPham808/ad2755628ef1986e7d63c972ec1df0d6/huy-hung_pham_mis780a2_task2.ipynb)
@@ -66,26 +87,9 @@ This project applies state-of-the-art deep learning to the real-world challenge 
    git clone https://github.com/JasonPham808/Image-Based-Recyclable-Material-Classification.git
    ```
 
-3. **Install dependencies:**  
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Add your data / Extend with new models:**  
-   Use `/src/` scripts for modular development.
-
-## 🎯 Next Steps (For Employers/Recruiters)
-
-- Explore the notebook for a deep dive into technical details.
-- Fork/adapt for your needs, or connect for collaboration!
-
 ## 📞 Contact
 
 - **Author:** Jason Pham  
 - [LinkedIn](https://www.linkedin.com/in/jasonpham808/)  
 - Gmail: Jasonpham808@gmail.com  
 - [GitHub](https://github.com/JasonPham808)
-
----
-
-MIT License
